@@ -1,0 +1,57 @@
+.page-container2 {
+  background: rgb(235, 253, 251);
+  background-image: url("../../assets/images/login.png");
+  background-size: 100% 100%;
+
+  background-position: 0 -13em;
+  display: grid;
+  padding: 4.7rem 2rem;
+  grid-template-rows: 4fr 2.5fr 4.5fr;
+  gap: 1rem;
+  .head-text {
+    padding: 0rem 1.5rem;
+    h1 {
+      padding-top: 12rem;
+      font-weight: 800;
+      font-size: 2.3rem;
+      color: #555b6c;
+      text-shadow: 2px 2px 2px rgb(46, 196, 182, 0.8);
+    }
+    p {
+      color: #2ec4b6;
+      padding: 1rem 0rem;
+      font-size: 1.1rem;
+    }
+  }
+  .inputBox {
+    padding: 0rem 1.5rem;
+    h3 {
+      padding: 0.5rem 0rem 1rem;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: #555b6c;
+      text-shadow: 2px 2px 2px rgb(46, 196, 182, 0.8);
+    }
+    input {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 1rem 1rem;
+      border-radius: 20px;
+      border: 2px solid #2ec4b6;
+      outline: none;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      &:focus {
+        border: 2px solid rgb(234, 225, 225);
+      }
+    }
+  }
+  button {
+    padding: 0rem 1.5rem;
+    width: 10.29rem;
+    height: 2.438rem;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+  }
+}
