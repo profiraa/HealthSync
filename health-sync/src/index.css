@@ -1,4 +1,4 @@
-html,
+ html,
 body,
 div,
 span,
@@ -85,7 +85,7 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-}
+} 
 
 /* HTML5 display-role reset for older browsers */
 article,
@@ -187,7 +187,7 @@ table {
   table {
     border-collapse: collapse;
     border-spacing: 0;
-  }
+  } */
 
   @import url("https://fonts.googleapis.com/css2?family=Kufam:ital,wght@0,400..900;1,400..900&family=Manrope:wght@200..800&display=swap");
 

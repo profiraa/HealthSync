@@ -2,13 +2,13 @@
 .button {
     width: 7.375rem;
     height: 2.813rem;
-    background-color: rgb(38, 161, 150) !important;
+    background-color: rgb(38, 161, 150)!important;
     border: none;
     color: white;
     padding: 10px 20px;
     border-radius: 20px;
     &:hover {
-        background-color: rgb(136, 160, 158);
+        background-color: rgb(136, 160, 158)!important;
         cursor: pointer;
     }
 }

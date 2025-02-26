@@ -12,6 +12,7 @@ export default function Login() {
 
   return (
     <div className="page-container2">
+    
       <div className="head-text">
         <h1>Login</h1>
         <p>Welcome! Please login to your account.</p>

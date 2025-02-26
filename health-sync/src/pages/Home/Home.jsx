@@ -17,24 +17,25 @@ export default function Home() {
         </h1>
       </div>
       <div className="main">
-      <div className="text">
-        <p>Welcome to Your Personal Health Hub!</p>
-      </div>
-      <div className="pic-button-group">
-        <div className="pic-button-container">
-          <img src="./doctor.png" />
+        <div className="text">
+          <p>Welcome to Your Personal Health Hub!</p>
+        </div>
+        <div className="pic-button-group">
+          <div className="pic-button-container">
+            <img src="./doctor.png" />
 
-          <button className="button" onClick={handleButtonClick}>
-            MEDICAL STAFF
-          </button>
+            <button className="button" onClick={handleButtonClick}>
+              MEDICAL STAFF
+            </button>
+          </div>
+          <div className="pic-button-container">
+            <img src="./patient.png" />
+            <button className="button" onClick={handleButtonClick}>
+              PATIENT
+            </button>
+          </div>
         </div>
-        <div className="pic-button-container">
-          <img src="./patient.png" />
-          <button className="button" onClick={handleButtonClick}>
-            PATIENT
-          </button>
-        </div>
-      </div></div>
+      </div>
     </div>
   );
 }
