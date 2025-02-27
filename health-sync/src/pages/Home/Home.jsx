@@ -18,7 +18,8 @@ export default function Home() {
       </div>
       <div className="main">
         <div className="text">
-          <p>Welcome to Your Personal Health Hub!</p>
+          <p>Welcome to <br />
+         Your Personal Health Hub!</p>
         </div>
         <div className="pic-button-group">
           <div className="pic-button-container">

@@ -189,10 +189,16 @@ table {
     border-spacing: 0;
   } */
 
-  @import url("https://fonts.googleapis.com/css2?family=Kufam:ital,wght@0,400..900;1,400..900&family=Manrope:wght@200..800&display=swap");
+  @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jaldi:wght@400;700&family=Kufam:ital,wght@0,400..900;1,400..900&family=Manrope:wght@200..800&display=swap');
 
-  @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kufam:ital,wght@0,400..900;1,400..900&family=Manrope:wght@200..800&display=swap");
+  @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jaldi:wght@400;700&family=Kufam:ital,wght@0,400..900;1,400..900&family=Manrope:wght@200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+ 
+ 
 
+  
+  /* let header.css work for Global */
+  @import "./styles/header.css";
+  @import "./styles/topMenu.css";
   :root {
     --mainGreen: rgb(38, 161, 150);
     --Background-lightGreen: rgb(249, 255, 254);
@@ -203,6 +209,7 @@ table {
     --textColorDark: #000;
     --textColorLight: #fff;
     --textContentFontFamily: "Kufam";
+
   }
 
   body {
