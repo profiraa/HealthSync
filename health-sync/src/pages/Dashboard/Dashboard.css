@@ -8,6 +8,7 @@
     grid-template-rows: 1fr 1fr;
     gap: 1rem;
     padding: 0rem 1.5rem;
+    justify-items: end;
     .dash {
       font-family: jaldi, arial, helvetica, sans-serif;
       font-size: 1.375rem;
@@ -28,6 +29,15 @@
         color: #555b6c;
         font-size: 20px;
         font-weight: bold;
+      }
+    }
+    .calendar {
+      input {
+        width: 100px;
+        height: 37px;
+        border-radius: 20px;
+        border: solid 1px #ACA8A8;
+        
       }
     }
   }
