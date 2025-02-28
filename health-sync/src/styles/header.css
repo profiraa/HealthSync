@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 5fr;
   gap: 1rem;
+  background: rgb(249, 255, 254);
   .logo {
     width: 4rem;
     height: 4rem;
