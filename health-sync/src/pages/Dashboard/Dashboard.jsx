@@ -10,6 +10,10 @@ import "../../styles/button.css";
 import Header from "../../components/Header";
 import { getPatients } from "../../api/fetchPatients";
 import Pagination from "../../components/Pagination";
+import PatientForm from "../../components/PatientForm";
+
+
+
 
 export default function Dashboard() {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -127,7 +131,29 @@ export default function Dashboard() {
           />
         </div>
       </div>
-      <div className="task"></div>
+      <div className="task">
+        <h1> Add Your Task To The Schedule </h1>
+        <div className="taskContent">
+          <div className="taskLists">
+            <input
+              type="text"
+              className="taskItem"
+              placeholder="Patient's Name"
+            />
+            <input
+              type="text"
+              className="taskItem"
+              placeholder="Patient's Personal Number"
+            />
+            <input type="text" className="taskItem" placeholder="Date & Hour" />
+          </div>
+          <div className="medicalJournal">
+            <img className="attachIcon"  src="./attach_file.png" alt="" />
+            <h1 className="medicalText">Medical Journal</h1>
+          </div>
+        </div>
+        <button className="button bashboard-button">Add</button>
+      </div>
 
       <Modal isOpen={isModalOpen} closeModal={() => setIsModalOpen(false)}>
         <DatePicker

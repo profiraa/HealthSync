@@ -3,12 +3,11 @@ import "../styles/topMenu.css";
 export default function TopMenu() {
   return (
     <div className="topMenu">
-      <div className="searchBar">
-        <img src="./search.svg" />
-        <p>Search</p>
+      <div className="topSearch">
+        <img className="searchIcon" src="./search.svg" alt="Search" />
+        <input className="searchBar" type="text" placeholder="Search" />
       </div>
-      <img className="avatar" src="./small-doctor.png" alt="" />
+      <img className="avatar" src="./small-doctor.png" alt="Avatar" />
     </div>
-    
   );
 }
