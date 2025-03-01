@@ -130,7 +130,7 @@ table {
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jaldi:wght@400;700&family=Kufam:ital,wght@0,400..900;1,400..900&family=Manrope:wght@200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 :root {
   --maingreen: html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5,
     h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
