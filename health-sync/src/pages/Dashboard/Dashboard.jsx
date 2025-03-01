@@ -5,53 +5,71 @@ import Modal from "../../components/ui/modal";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { CalendarIcon } from "lucide-react";
-// import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 import "../../styles/button.css";
 import Header from "../../components/Header";
 import { getPatients } from "../../api/fetchPatients";
+import Pagination from "../../components/Pagination";
 
 export default function Dashboard() {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [patients, setPatients] = useState([]);
-  const [allPatients, setAllPatients] = useState([]);
+  const [allPatients, setAllPatients] = useState({}); //Store paginated data
+  const [patients, setPatients] = useState([]); //Current page data
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 5;
+  const totalPages = 5;
 
   useEffect(() => {
-    fetchRandomPatients(); // 页面加载时获取随机数据
-  }, []);
+    fetchRandomPatients();
+  }, []); // Get data when page loads
 
   const fetchRandomPatients = async () => {
     const data = await getPatients();
-    const shuffledData = shuffleArray(data); // 随机打乱数据
-    setAllPatients(shuffledData);
-    setPatients(sortPatientsByTime(shuffledData)); // 根据时间排序
+    const shuffledData = shuffleArray(data);
+    const sortedData = sortPatientsByTime(shuffledData);
+    const paginatedData = paginateData(sortedData, pageSize); // Paginate
+
+    setAllPatients(paginatedData);
+    setPatients(paginatedData[currentPage] || []); // Set current page data
   };
 
   const shuffleArray = (array) => {
-    return array.sort(() => Math.random() - 0.5); // 随机打乱数组
+    return [...array].sort(() => Math.random() - 0.5); //Copy the array and scramble it
   };
 
   const sortPatientsByTime = (patients) => {
-    return patients
-      .sort((a, b) => {
-        const timeA = new Date(a.registered.date);
-        const timeB = new Date(b.registered.date);
+    return [...patients].sort((a, b) => {
+      const timeA = new Date(a.registered.date);
+      const timeB = new Date(b.registered.date);
+      return (
+        timeA.getHours() * 60 +
+        timeA.getMinutes() -
+        (timeB.getHours() * 60 + timeB.getMinutes())
+      );
+    });
+  };
 
-        // 获取时间部分（小时和分钟）
-        const minutesA = timeA.getHours() * 60 + timeA.getMinutes();
-        const minutesB = timeB.getHours() * 60 + timeB.getMinutes();
-
-        return minutesA - minutesB; // 按照时间升序排序
-      });
+  const paginateData = (data, size) => {
+    let paginated = {};
+    for (let i = 1; i <= totalPages; i++) {
+      paginated[i] = data.slice((i - 1) * size, i * size);
+    }
+    return paginated;
   };
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
-    fetchRandomPatients(); // 每次选择日期时，重新获取随机数据
+    setCurrentPage(1);
+    fetchRandomPatients();
     setIsModalOpen(false);
   };
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    setPatients(allPatients[page] || []);
+  };
+  console.log({ currentPage });
   return (
     <div className="dashboardPage-container">
       <Header className="headerCell" />
@@ -101,6 +119,13 @@ export default function Dashboard() {
             </p>
           )}
         </ul>
+        <div className="paginationContainer">
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
+        </div>
       </div>
       <div className="task"></div>
 
