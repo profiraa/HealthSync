@@ -10,7 +10,8 @@
   color: #aca8a8;
   cursor: pointer;
   border: none;
-  width: 13rem;
+  /* width: 13rem; */
+  width: auto;
   height: 2rem;
   background-color: transparent;
   display: flex;
