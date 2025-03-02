@@ -1,6 +1,6 @@
 .dashboardPage-container {
   display: grid;
-  grid-template-rows: 0.5fr 0.8fr 2fr 2fr;
+  grid-template-rows: 0.5fr 0.5fr 1.7fr;
   gap: 1.5rem;
   background: #fff;
   padding: 1rem 0rem;
@@ -15,7 +15,7 @@
     .dash {
       font-family: jaldi, arial, helvetica, sans-serif;
       font-size: 1.375rem;
-      -webkit-text-stroke: 1px #ada7a7; /* 描边 */
+      -webkit-text-stroke: 1px #ada7a7; 
       text-shadow: 0px -1px 3px rgba(173, 167, 167, 0.8),
         -1px 0px 3px rgba(173, 167, 167, 0.8),
         1px 0px 3px rgba(173, 167, 167, 0.8);
@@ -35,12 +35,20 @@
       }
     }
     .calendar {
-      input {
+      /* input {
         width: 100px;
         height: 37px;
         border-radius: 20px;
         border: solid 1px #aca8a8;
-      }
+      } */
+       .calendarIcon {
+          width:30px;
+          height: 30px;
+          &:hover {
+            cursor: pointer;
+           color: rgb(38, 161, 150);
+          }
+        }
     }
   }
   .sheet {
@@ -99,7 +107,7 @@
   }
   .task {
     display: grid;
-    grid-template-rows: 1fr 3fr 1fr;
+    grid-template-rows: 1fr 7fr;
     h1 {
       font-family: Nunito, arial, helvetica, sans-serif;
       color: #555b6c;
@@ -112,22 +120,7 @@
       grid-template-columns: 1.3fr 1fr;
       padding: 0px 10px;
       gap: 1rem;
-      .taskLists {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-
-        .taskItem {
-          margin: 0 auto;
-          font-style: italic;
-          width: -webkit-fill-available;
-          padding: 0px 10px;
-          height: 2.32rem;
-          border: solid 1px #ebfdfb;
-          border-radius: 20px;
-          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
-        }
-      }
+     
       .medicalJournal {
         display: flex;
         margin-top: 10px;
