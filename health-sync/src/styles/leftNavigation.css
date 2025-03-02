@@ -1,0 +1,23 @@
+.leftNavigationContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15vh;
+  height: 90vh;
+  width: 50vw;
+  background-color: #f9fffe;
+  padding: 1rem;
+  .topList,
+  .bottomList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    div > button {
+      font-family: Inter, "Arial Narrow Bold", sans-serif;
+      font-size: 18px;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+  }
+ 
+}

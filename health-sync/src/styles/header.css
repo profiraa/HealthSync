@@ -1,6 +1,6 @@
 .headerContainer {
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 1fr 4fr;
   gap: 1rem;
   background: rgb(249, 255, 254);
   .logo {
