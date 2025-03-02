@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Popover from "../../components/ui/popover";
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/ui/button";
 import Modal from "../../components/ui/modal";
 import DatePicker from "react-datepicker";
@@ -11,7 +11,6 @@ import Header from "../../components/Header";
 import { getPatients } from "../../api/fetchPatients";
 import Pagination from "../../components/Pagination";
 import PatientForm from "../../components/PatientForm";
-import{convertToISO} from "../../components/PatientForm";
 
 export default function Dashboard() {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -21,6 +20,11 @@ export default function Dashboard() {
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 5;
   const totalPages = 5;
+  
+  const navigate = useNavigate();
+  const handleMobileMenuClick = ()=>{
+    navigate('/mobileMenuPage')
+  }
 
   useEffect(() => {
     fetchRandomPatients();
@@ -75,20 +79,24 @@ export default function Dashboard() {
     setPatients(allPatients[page] || []);
   };
   console.log({ currentPage });
+
+
   return (
     <div className="dashboardPage-container">
       <Header className="headerCell" />
       <div className="text-button-group">
         <h1 className="dash">Dashboard</h1>
-        <img src="./mobilMenu.svg" alt="" />
+        <button onClick={handleMobileMenuClick}>
+          <img src="./mobilMenu.svg" alt="" />
+        </button>
+
         <div className="textContainer">
           <h1>Daily Schedule</h1>
           <p> {selectedDate.toLocaleDateString()}</p>
         </div>
         <div className="calendar">
-          <Button 
-          onClick={() => setIsModalOpen(true)}>
-            <CalendarIcon className="calendarIcon"/>
+          <Button onClick={() => setIsModalOpen(true)}>
+            <CalendarIcon className="calendarIcon" />
           </Button>
         </div>
       </div>
@@ -136,13 +144,12 @@ export default function Dashboard() {
       <div className="task">
         <h1> Add Your Task To The Schedule </h1>
         <div className="taskContent">
-          <PatientForm onAddPatient={handleAddNewPatient}/>
+          <PatientForm onAddPatient={handleAddNewPatient} />
           <div className="medicalJournal">
             <img className="attachIcon" src="./attach_file.png" alt="" />
             <h1 className="medicalText">Medical Journal</h1>
           </div>
         </div>
-        
       </div>
 
       <Modal isOpen={isModalOpen} closeModal={() => setIsModalOpen(false)}>

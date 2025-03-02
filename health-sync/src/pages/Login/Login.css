@@ -51,15 +51,14 @@
     display: block;
     margin: 0 auto;
   }
- 
 }
 @media (min-width: 376px) {
   .page-container2 {
     background-size: 100% 120%;
     background-position: 0em -12em;
     padding: 0rem 2rem;
-    
-    
+    height: 100vh;
+
     .head-text {
       width: 35rem;
       min-width: 35rem;
@@ -71,7 +70,7 @@
         font-weight: 1000;
       }
       p {
-        font-size:1.8rem;
+        font-size: 1.8rem;
         padding-top: 2rem;
       }
     }
