@@ -26,6 +26,9 @@ export default function Dashboard() {
   const handleMobileMenuClick = () => {
     navigate("/mobileMenuPage");
   };
+  const handleSeeMoreBtn = ()=>{
+    navigate("/appointmentPage");
+  }
 
   useEffect(() => {
     fetchRandomPatients();
@@ -109,7 +112,9 @@ export default function Dashboard() {
             <div className="sheetHead">
               <ul className="oneRow">
                 <li>Time</li>
-                <li>Name</li>
+                <li className="shortName">Name</li>
+                <li className="fullName">Patient's Name</li>
+                <li className="perNum">Personal Number </li>
                 <li>Personal File</li>
                 <li>Actions</li>
               </ul>
@@ -127,6 +132,9 @@ export default function Dashboard() {
                     <div className="item">
                       {user.name.first} {user.name.last}
                     </div>
+                    <div className="item numberForBigView">
+                      {user.location.postcode} 
+                    </div>
                     <img className="item" src="./send-sqaure.png" alt="" />
                     <div className="small-icons item">
                       <img src="./note.png" alt="" />
@@ -140,6 +148,9 @@ export default function Dashboard() {
                 </p>
               )}
             </ul>
+            <Button className="seeMore button" onClick={handleSeeMoreBtn}>
+              See More
+            </Button>
             {/* <div className="paginationContainer">
               <Pagination
                 currentPage={currentPage}
