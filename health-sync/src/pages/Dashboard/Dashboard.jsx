@@ -9,7 +9,7 @@ import "./Dashboard.css";
 import "../../styles/button.css";
 import Header from "../../components/Header";
 import { getPatients } from "../../api/fetchPatients";
-import Pagination from "../../components/Pagination";
+
 import PatientForm from "../../components/PatientForm";
 import LeftNavigation from "../../components/LeftNavigation";
 
@@ -86,7 +86,7 @@ export default function Dashboard() {
       <Header className="headerCell" />
       <div className="nav-content-container">
         <div className="pageNavigate">
-          <LeftNavigation/>
+          <LeftNavigation />
         </div>
         <div className="dashboardContent">
           <div className="text-button-group">
@@ -119,10 +119,11 @@ export default function Dashboard() {
                 patients.map((user, index) => (
                   <li key={index} className="patient-card ">
                     <div className="item">
-                    { new Date(user.registered.date).toLocaleTimeString([], {
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    })}</div>
+                      {new Date(user.registered.date).toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })}
+                    </div>
                     <div className="item">
                       {user.name.first} {user.name.last}
                     </div>
@@ -139,21 +140,53 @@ export default function Dashboard() {
                 </p>
               )}
             </ul>
-            <div className="paginationContainer">
+            {/* <div className="paginationContainer">
               <Pagination
                 currentPage={currentPage}
                 totalPages={totalPages}
                 onPageChange={handlePageChange}
               />
-            </div>
+            </div> */}
           </div>
-          <div className="task">
+          <div className="taskContainer">
             <h1> Add Your Task To The Schedule </h1>
-            <div className="taskContent">
-              <PatientForm onAddPatient={handleAddNewPatient} />
-              <div className="medicalJournal">
-                <img className="attachIcon" src="./attach_file.png" alt="" />
-                <h1 className="medicalText">Medical Journal</h1>
+            <div className="task">
+              <div className="taskContent">
+                <PatientForm onAddPatient={handleAddNewPatient} />
+                <div className="journalContainer">
+                  <div className="medicalJournal">
+                    <img
+                      className="attachIcon"
+                      src="./attach_file.png"
+                      alt=""
+                    />
+                    <h1 className="medicalText">Medical Journal</h1>
+                  </div>
+                  <div className="JournalFirstRow-bigView mOneRow">
+                    <p className="JournalText">Medical Journal</p>
+                    <img
+                      className="fileIcon"
+                      src="./file-text.png"
+                      alt=""
+                    />
+                  </div>
+                  <div className="JournalSecondRow-bigView mOneRow">
+                    <p className="JournalText">Treatment</p>
+                    <img
+                      className="attachIconBig"
+                      src="./attach_file.png"
+                      alt=""
+                    />
+                  </div>
+                  <div className="JournalThirdRow-bigView mOneRow">
+                    <p className="JournalText">Other Details</p>
+                    <img
+                      className="attachIconBig"
+                      src="./attach_file.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>

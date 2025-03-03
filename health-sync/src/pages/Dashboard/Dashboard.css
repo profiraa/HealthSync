@@ -45,12 +45,6 @@
           }
         }
         .calendar {
-          /* input {
-        width: 100px;
-        height: 37px;
-        border-radius: 20px;
-        border: solid 1px #aca8a8;
-      } */
           .calendarIcon {
             width: 30px;
             height: 30px;
@@ -119,7 +113,7 @@
         .paginationContainer {
         }
       }
-      .task {
+      .taskContainer {
         display: grid;
         grid-template-rows: 1fr 7fr;
         h1 {
@@ -127,11 +121,11 @@
           color: #555b6c;
           font-size: 20px;
           font-weight: bold;
-          padding-left: 1rem;
+          padding-left: 2rem;
         }
         .taskContent {
           display: grid;
-          grid-template-columns: 1.3fr 1fr;
+          grid-template-columns: 1fr 1fr;
           padding: 0px 10px;
           gap: 1rem;
 
@@ -145,6 +139,9 @@
             .medicalText {
               font-family: Plus Jakarta Sans;
             }
+          }
+          .mOneRow {
+            display: none;
           }
         }
         .bashboard-button {
@@ -162,11 +159,9 @@
     display: grid;
     grid-template-rows: 0.5fr 3fr;
     .headerContainer {
-
       .topMenu {
         display: flex;
         justify-content: space-between;
-
       }
     }
     .nav-content-container {
@@ -218,8 +213,51 @@
             }
           }
         }
-        .task{
-          
+        .task {
+          border: solid 1px #478f96;
+          border-radius: 20px;
+          margin: 0rem 2rem;
+          padding: 30px;
+
+          .taskContent {
+            display: grid;
+            gap: 1rem;
+            justify-content: space-between;
+            .journalContainer {
+              border: solid 1px #b9b6b6;
+              border-radius: 20px;
+              margin: 0rem 2rem;
+              padding: 10px 24px;
+              display: flex;
+              flex-direction: column;
+
+              .medicalJournal {
+                display: none;
+              }
+              .mOneRow {
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1rem;
+
+                /* border-bottom: solid 1px grey; */
+                .attachIconBig {
+                  width: 32px;
+                  height: 35px;
+                }
+                .JournalText {
+                  font-family: "Plus Jakarta Sans";
+                  font-size: 16px;
+                  color: #555b6c;
+                }
+                .fileIcon {
+                  width: 44px;
+                  height: 48px;
+                }
+              }
+            }
+          }
         }
       }
     }
