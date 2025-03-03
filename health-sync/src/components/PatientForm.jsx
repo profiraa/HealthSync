@@ -8,15 +8,27 @@ import Modal from "../components/ui/modal";
 export default function PatientForm({ onAddPatient }) {
   const [patient, setPatient] = useState({
     name: "",
-    personalNumber: "",
+    location: {
+      postcode: "",
+    },
     dateHour: new Date(), //Initially the current time
   });
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
-  const handleChange = (e) => {
+  const handleChangeName = (e) => {
     setPatient({
       ...patient,
       [e.target.name]: e.target.value,
     });
+  };
+  const handleChangeNumber = (e) => {
+    const postcodeValue = e.target.value;
+    setPatient(prevPatient => ({
+      ...prevPatient,
+      location: {
+        ...prevPatient.location,
+        postcode: postcodeValue
+      }
+    }));
   };
   const handleDateChange = (date) => {
     setPatient({
@@ -27,7 +39,7 @@ export default function PatientForm({ onAddPatient }) {
   };
 
   const handleAddPatient = () => {
-    if (!patient.name || !patient.personalNumber || !patient.dateHour) {
+    if (!patient.name || !patient.location.postcode || !patient.dateHour) {
       alert("Please fill in complete patient information");
       return;
     }
@@ -37,12 +49,12 @@ export default function PatientForm({ onAddPatient }) {
 
     const newPatient = {
       name: { first: patient.name, last: "" },
-      personalNumber: patient.personalNumber,
+      location: { postcode: patient.location.postcode },
       registered: { date: formattedDate }, // Save to database format
     };
 
     onAddPatient(newPatient); // Call the method passed by `Dashboard` to update the data
-    setPatient({ name: "", personalNumber: "", dateHour: new Date() }); // Clear input box
+    setPatient({ name: "", location: { postcode: "" }, dateHour: new Date() }); // Clear input box
   };
   return (
     <div>
@@ -53,15 +65,15 @@ export default function PatientForm({ onAddPatient }) {
           className="taskItem"
           placeholder="Patient's Name"
           value={patient.name}
-          onChange={handleChange}
+          onChange={handleChangeName}
         />
         <input
           type="text"
-          name="personalNumber"
+          name="postcode"
           className="taskItem"
           placeholder="Patient's Personal Number"
-          value={patient.personalNumber}
-          onChange={handleChange}
+          value={patient.location.postcode}
+          onChange={handleChangeNumber}
         />
         <button
           className="datePicker-button taskItem chooseTimeIcon"

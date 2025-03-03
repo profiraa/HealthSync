@@ -80,6 +80,9 @@
               font-family: Kufam;
               font-size: 13px;
             }
+            .perNum, .fullName{
+              display: none;
+            }
           }
         }
         .patients {
@@ -91,14 +94,18 @@
           gap: 5px;
           width: 22.125rem;
           padding-top: 1rem;
+          padding-bottom: 1rem;
           .patient-card {
+            .numberForBigView {
+              display: none;
+            }
             width: 22.125rem;
             align-items: center;
             justify-items: center;
             margin: 0 auto;
             display: grid;
             gap: 5px;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr ;
             border: solid 1px #ebfdfb;
             border-radius: 20px;
             height: 2rem;
@@ -110,7 +117,14 @@
             }
           }
         }
-        .paginationContainer {
+        .seeMore {
+          border-radius: 10px;
+          width: 4.375rem;
+          height: 1.813rem;
+          font-size: 9px;
+          padding: 5px 8px;
+          margin-left: auto;
+          margin-right: 20px;
         }
       }
       .taskContainer {
@@ -203,14 +217,29 @@
                 font-family: Kufam, sans-serif;
                 font-size: 13px;
               }
+              .shortName {
+                display: none;
+              }
+              .perNum, .fullName {
+                display: block;
+              }
             }
           }
           .patients {
             width: 100%;
-
+            margin-bottom: 1rem;
             .patient-card {
+              grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
               width: 100%;
+              .numberForBigView {
+                display: block;
+              }
             }
+          }
+          .seeMore {
+            border-radius: 10px;
+            margin-left: auto;
+          margin-right: 3rem;
           }
         }
         .task {
