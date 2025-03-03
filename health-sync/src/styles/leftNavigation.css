@@ -1,11 +1,12 @@
 .leftNavigationContainer {
   display: flex;
   flex-direction: column;
-  gap: 15vh;
+  gap: 30vh;
   height: 90vh;
-  width: 50vw;
+  width: 16.75rem;;
   background-color: #f9fffe;
   padding: 1rem;
+  margin-top: -1.5rem;
   .topList,
   .bottomList {
     display: flex;

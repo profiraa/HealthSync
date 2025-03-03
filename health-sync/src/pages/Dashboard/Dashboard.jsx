@@ -11,6 +11,7 @@ import Header from "../../components/Header";
 import { getPatients } from "../../api/fetchPatients";
 import Pagination from "../../components/Pagination";
 import PatientForm from "../../components/PatientForm";
+import LeftNavigation from "../../components/LeftNavigation";
 
 export default function Dashboard() {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -20,11 +21,11 @@ export default function Dashboard() {
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 5;
   const totalPages = 5;
-  
+
   const navigate = useNavigate();
-  const handleMobileMenuClick = ()=>{
-    navigate('/mobileMenuPage')
-  }
+  const handleMobileMenuClick = () => {
+    navigate("/mobileMenuPage");
+  };
 
   useEffect(() => {
     fetchRandomPatients();
@@ -80,85 +81,92 @@ export default function Dashboard() {
   };
   console.log({ currentPage });
 
-
   return (
     <div className="dashboardPage-container">
       <Header className="headerCell" />
-      <div className="text-button-group">
-        <h1 className="dash">Dashboard</h1>
-        <button onClick={handleMobileMenuClick}>
-          <img src="./mobilMenu.svg" alt="" />
-        </button>
+      <div className="nav-content-container">
+        <div className="pageNavigate">
+          <LeftNavigation/>
+        </div>
+        <div className="dashboardContent">
+          <div className="text-button-group">
+            <h1 className="dash">Dashboard</h1>
+            <button className="mobil-menu" onClick={handleMobileMenuClick}>
+              <img src="./mobilMenu.svg" alt="" />
+            </button>
 
-        <div className="textContainer">
-          <h1>Daily Schedule</h1>
-          <p> {selectedDate.toLocaleDateString()}</p>
-        </div>
-        <div className="calendar">
-          <Button onClick={() => setIsModalOpen(true)}>
-            <CalendarIcon className="calendarIcon" />
-          </Button>
-        </div>
-      </div>
-      <div className="sheet">
-        <div className="sheetHead">
-          <ul>
-            <li>Time</li>
-            <li>Name</li>
-            <li>Personal File</li>
-            <li>Actions</li>
-          </ul>
-        </div>
-        <ul className="patients">
-          {patients.length > 0 ? (
-            patients.map((user, index) => (
-              <li key={index} className="patient-card">
-                {new Date(user.registered.date).toLocaleTimeString([], {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })}
-                <div>
-                  {user.name.first} {user.name.last}
-                </div>
-                <img src="./send-sqaure.png" alt="" />
-                <div className="small-icons">
-                  <img src="./note.png" alt="" />
-                  <img src="./ashbin.png" alt="" />
-                </div>
-              </li>
-            ))
-          ) : (
-            <p style={{ textAlign: "center", padding: "20px" }}>
-              No data available
-            </p>
-          )}
-        </ul>
-        <div className="paginationContainer">
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
-          />
-        </div>
-      </div>
-      <div className="task">
-        <h1> Add Your Task To The Schedule </h1>
-        <div className="taskContent">
-          <PatientForm onAddPatient={handleAddNewPatient} />
-          <div className="medicalJournal">
-            <img className="attachIcon" src="./attach_file.png" alt="" />
-            <h1 className="medicalText">Medical Journal</h1>
+            <div className="textContainer">
+              <h1>Daily Schedule</h1>
+              <p> {selectedDate.toLocaleDateString()}</p>
+            </div>
+            <div className="calendar">
+              <Button onClick={() => setIsModalOpen(true)}>
+                <CalendarIcon className="calendarIcon" />
+              </Button>
+            </div>
           </div>
+          <div className="sheet">
+            <div className="sheetHead">
+              <ul className="oneRow">
+                <li>Time</li>
+                <li>Name</li>
+                <li>Personal File</li>
+                <li>Actions</li>
+              </ul>
+            </div>
+            <ul className="patients">
+              {patients.length > 0 ? (
+                patients.map((user, index) => (
+                  <li key={index} className="patient-card ">
+                    <div className="item">
+                    { new Date(user.registered.date).toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}</div>
+                    <div className="item">
+                      {user.name.first} {user.name.last}
+                    </div>
+                    <img className="item" src="./send-sqaure.png" alt="" />
+                    <div className="small-icons item">
+                      <img src="./note.png" alt="" />
+                      <img src="./ashbin.png" alt="" />
+                    </div>
+                  </li>
+                ))
+              ) : (
+                <p style={{ textAlign: "center", padding: "20px" }}>
+                  No data available
+                </p>
+              )}
+            </ul>
+            <div className="paginationContainer">
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+              />
+            </div>
+          </div>
+          <div className="task">
+            <h1> Add Your Task To The Schedule </h1>
+            <div className="taskContent">
+              <PatientForm onAddPatient={handleAddNewPatient} />
+              <div className="medicalJournal">
+                <img className="attachIcon" src="./attach_file.png" alt="" />
+                <h1 className="medicalText">Medical Journal</h1>
+              </div>
+            </div>
+          </div>
+
+          <Modal isOpen={isModalOpen} closeModal={() => setIsModalOpen(false)}>
+            <DatePicker
+              selected={selectedDate}
+              onChange={handleDateChange}
+              inline
+            />
+          </Modal>
         </div>
       </div>
-
-      <Modal isOpen={isModalOpen} closeModal={() => setIsModalOpen(false)}>
-        <DatePicker
-          selected={selectedDate}
-          onChange={handleDateChange}
-          inline
-        />
-      </Modal>
     </div>
   );
 }
