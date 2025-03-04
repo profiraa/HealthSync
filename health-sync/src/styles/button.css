@@ -8,7 +8,7 @@
     padding: 10px 20px;
     border-radius: 20px;
     &:hover {
-        background-color: rgb(136, 160, 158)!important;
+        background-color: rgb(110, 234, 223)!important;
         cursor: pointer;
     }
 }

@@ -80,7 +80,8 @@
               font-family: Kufam;
               font-size: 13px;
             }
-            .perNum, .fullName{
+            .perNum,
+            .fullName {
               display: none;
             }
           }
@@ -105,7 +106,7 @@
             margin: 0 auto;
             display: grid;
             gap: 5px;
-            grid-template-columns: 1fr 1fr 1fr 1fr ;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
             border: solid 1px #ebfdfb;
             border-radius: 20px;
             height: 2rem;
@@ -182,6 +183,14 @@
       .pageNavigate {
         .leftNavigationContainer {
           display: flex;
+          .topList {
+            div {
+              .active {
+                color: #fff;
+                background-color: rgb(38, 161, 150);
+              }
+            }
+          }
         }
       }
       .dashboardContent {
@@ -220,7 +229,8 @@
               .shortName {
                 display: none;
               }
-              .perNum, .fullName {
+              .perNum,
+              .fullName {
                 display: block;
               }
             }
@@ -239,7 +249,7 @@
           .seeMore {
             border-radius: 10px;
             margin-left: auto;
-          margin-right: 3rem;
+            margin-right: 3rem;
           }
         }
         .task {
