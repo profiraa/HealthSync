@@ -57,7 +57,7 @@ export default function PatientForm({ onAddPatient }) {
     setPatient({ name: "", location: { postcode: "" }, dateHour: new Date() }); // Clear input box
   };
   return (
-    <div>
+    <div className="taskListsContainer">
       <div className="taskLists">
         <input
           type="text"
