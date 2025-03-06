@@ -2,7 +2,7 @@ body {
   background:#EBFDFB;
 
   .page-container1 {
-    min-height: calc(100vh - 20px);
+    min-height:100vh;
     background:#EBFDFB;
     display: grid;
     grid-template-rows: 1fr 4fr;

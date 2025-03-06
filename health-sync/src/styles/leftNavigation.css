@@ -1,18 +1,19 @@
 .leftNavigationContainer {
   display: flex;
   flex-direction: column;
-  gap: 30vh;
-  height: 90vh;
+
+  height: 100%;
+  justify-content: space-between;
   width: 16.75rem;
   background-color: #f9fffe;
-  padding: 1rem;
- 
+  gap: 18vh;
+  padding-top: 2vh;
   .topList,
   .bottomList {
-   
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 10px;
+
     div {
       button {
         font-family: Inter, "Arial Narrow Bold", sans-serif;
@@ -26,11 +27,10 @@
         cursor: pointer;
         transition: background-color 0.3s ease, color 0.3s ease;
         &:hover {
-          background-color: rgb(110, 234, 223)!important;
+          background-color: rgb(110, 234, 223) !important;
           border: none;
           color: white;
         }
-     
       }
     }
   }
@@ -39,4 +39,19 @@
 .leftNavigationContainer .bottomList button.active {
   background-color: rgb(38, 161, 150) !important;
   color: #fff !important;
+  img {
+    filter:invert(1)
+  }
+}
+@media (min-width: 376px) {
+  .leftNavigationContainer {
+    height: 100vh;
+    gap: 18vh;
+    padding: 1rem;
+    padding-top: 4vh;
+    .topList,
+    .bottomList {
+      gap: 1rem;
+    }
+  }
 }

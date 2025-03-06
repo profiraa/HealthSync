@@ -183,6 +183,9 @@
       .pageNavigate {
         .leftNavigationContainer {
           display: flex;
+          gap:8vh;
+          justify-content: space-between;
+          height: 85vh;
           .topList {
             div {
               .active {

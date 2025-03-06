@@ -51,6 +51,8 @@
 @media (min-width: 376px){
  
  .topMenu {
-  
+  .topSearch {
+    width: 25rem;
+  }
  }
 }

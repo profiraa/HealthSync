@@ -12,7 +12,7 @@ export default function MobileMenuPage() {
     <div className="mobile-menu-page">
       <Header />
       <button className="closeButton" onClick={handleClosePageButton}>
-        <img src="./close.svg" alt="" />
+        <img src="./multiplication.jpg" alt="" />
       </button>
       <LeftNavigation />
     </div>

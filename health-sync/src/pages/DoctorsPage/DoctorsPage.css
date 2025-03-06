@@ -17,7 +17,7 @@
       .pageNavigate {
         .leftNavigationContainer {
           display: flex !important;
-         
+          height: 88vh;
       }
     }
   }}
